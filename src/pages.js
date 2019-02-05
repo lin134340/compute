@@ -6,7 +6,7 @@ export default class Pages extends React.Component {
     render () {
         let page = null;
         if (this.props.page === "导入") {
-            page = <Pinput />;
+            page = <Pinput onFileChange={this.props.onFileChange} />;
         } else if (this.props.page === "报表") {
             page = <Preport />;
         }

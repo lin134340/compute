@@ -5,18 +5,21 @@ import JqxListBox  from './assets/jqwidgets-react/react_jqxlistbox.js';
 export default class Pinput extends React.Component {
     constructor() {
         super()
-        this.state = {
-            files: []
-        }
+        // this.state = {
+        //     files: []
+        // }
     }
 
     onDrop(acceptfiles) {
-        this.setState({
-            files: acceptfiles
-        });
+
+        // this.setState({
+        //     files: acceptfiles
+        // });
         let lb = this.refs.myListBox;
         lb.clear();
         acceptfiles.forEach(function(e){
+            alert(e.name);
+            alert(e);
             lb.addItem(e.name);
         });
     }

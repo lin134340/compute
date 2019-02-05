@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import JqxSplitter from './assets/jqwidgets-react/react_jqxsplitter.js';
-import Menu from './menu.js';
-import Pages from './pages.js';
-import reducer from "./reducers";
+import Menu_c from './containers/menu_c.js';
+import Pages_c from './containers/pages_c.js';
+import reducer from "./reducers/index_r.js";
 
 const store = createStore(reducer);
 
@@ -15,14 +15,14 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         // this.state = {
-        //     page: ''
+            // page: ''
         // };
     }
-    handleMenuChange(p) {
-        this.setState({
-            page: p
-        });
-    }
+    // handleMenuChange(p) {
+    //     this.setState({
+    //         page: p
+    //     });
+    // }
     render() {
         return (
             <JqxSplitter ref='mainSplitter'
@@ -33,10 +33,12 @@ class App extends React.Component {
             ]}
             >
                 <div className="splitter-panel">
-                    <Menu onMenuChange={this.handleMenuChange.bind(this)}></Menu>
+                    {/* <Menu onMenuChange={this.handleMenuChange.bind(this)}></Menu> */}
+                    <Menu_c></Menu_c>
                 </div>
                 <div className="splitter-panel">
-                    <Pages page={store.getState()}/*{this.state.page}*/></Pages>
+                    {/* <Pages page={this.state.page}></Pages> */}
+                    <Pages_c></Pages_c>
                 </div>
             </JqxSplitter>
         )
